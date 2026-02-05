@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #fff;
+}
+
+/* ===== HEADER ===== */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.top-header nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 400;
+}
+
+/* ===== MAIN ===== */
+.container {
+    display: flex;
+    align-items: center;
+    padding: 60px 80px;
+}
+
+.image-box {
+    flex: 1;
+}
+
+.image-box img {
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-box {
+    flex: 1;
+    padding-left: 60px;
+}
+
+.form-box h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.form-box p {
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.form-box input {
+    width: 100%;
+    padding: 12px 0;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+}
+
+.btn-red {
+    width: 100%;
+    padding: 14px;
+    background: #db4444;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.btn-google {
+    width: 100%;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-google img {
+    width: 18px;
+}
+
+.login-text {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.login-text a {
+    color: #db4444;
+    text-decoration: none;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #000;
+    color: #fff;
+    padding: 50px 80px 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+footer h4 {
+    margin-bottom: 15px;
+}
+
+footer p, footer small {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #ccc;
+}
+
+footer input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    outline: none;
+}
+
+footer .copyright {
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+}
