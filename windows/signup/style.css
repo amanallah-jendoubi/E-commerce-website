@@ -9,7 +9,6 @@ body {
     background: #fff;
 }
 
-/* ===== HEADER ===== */
 .top-header {
     display: flex;
     justify-content: space-between;
@@ -30,7 +29,6 @@ body {
     font-weight: 400;
 }
 
-/* ===== MAIN ===== */
 .container {
     display: flex;
     align-items: center;
@@ -108,7 +106,6 @@ body {
     text-decoration: none;
 }
 
-/* ===== FOOTER ===== */
 footer {
     background: #000;
     color: #fff;
