@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <h2 class="logo">Exclusive</h2>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Contact</a>
+        <a href="#">About</a>
+        <a href="#">Sign Up</a>
+    </nav>
+    <input class="search" type="text" placeholder="What are you looking for?">
+</header>
+
+<!-- ===== BREADCRUMB ===== -->
+<div class="breadcrumb">
+    Account / My Account / Product / View Cart / <b>Checkout</b>
+</div>
+
+<!-- ===== CHECKOUT ===== -->
+<section class="checkout">
+
+    <!-- LEFT FORM -->
+    <div class="billing">
+        <h2>Billing Details</h2>
+
+        <form>
+            <input type="text" placeholder="First Name *">
+            <input type="text" placeholder="Company Name">
+            <input type="text" placeholder="Street Address *">
+            <input type="text" placeholder="Apartment, floor, etc. (optional)">
+            <input type="text" placeholder="Town/City *">
+            <input type="tel" placeholder="Phone Number *">
+            <input type="email" placeholder="Email Address *">
+
+            <label class="save">
+                <input type="checkbox" checked>
+                Save this information for faster check-out next time
+            </label>
+        </form>
+    </div>
+
+    <!-- RIGHT SUMMARY -->
+    <div class="summary">
+        <div class="item">
+            <img src="images/monitor.png">
+            <span>LCD Monitor</span>
+            <span>$650</span>
+        </div>
+
+        <div class="item">
+            <img src="images/gamepad.png">
+            <span>HI Gamepad</span>
+            <span>$1100</span>
+        </div>
+
+        <div class="line">
+            <span>Subtotal:</span>
+            <span>$1750</span>
+        </div>
+        <div class="line">
+            <span>Shipping:</span>
+            <span>Free</span>
+        </div>
+        <div class="line total">
+            <span>Total:</span>
+            <span>$1750</span>
+        </div>
+
+        <div class="payment">
+            <label>
+                <input type="radio" name="pay">
+                Bank
+                <img src="images/visa.png">
+                <img src="images/mastercard.png">
+            </label>
+
+            <label>
+                <input type="radio" name="pay" checked>
+                Cash on delivery
+            </label>
+        </div>
+
+        <div class="coupon">
+            <input type="text" placeholder="Coupon Code">
+            <button>Apply Coupon</button>
+        </div>
+
+        <button class="order-btn">Place Order</button>
+    </div>
+
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="footer-grid">
+        <div>
+            <h4>Exclusive</h4>
+            <p>Get 10% off your first order</p>
+            <input type="email" placeholder="Enter your email">
+        </div>
+
+        <div>
+            <h4>Support</h4>
+            <p>Dhaka, Bangladesh</p>
+            <p>exclusive@gmail.com</p>
+            <p>+88015-88888-9999</p>
+        </div>
+
+        <div>
+            <h4>Account</h4>
+            <p>My Account</p>
+            <p>Login / Register</p>
+            <p>Cart</p>
+            <p>Wishlist</p>
+        </div>
+
+        <div>
+            <h4>Quick Link</h4>
+            <p>Privacy Policy</p>
+            <p>Terms Of Use</p>
+            <p>FAQ</p>
+            <p>Contact</p>
+        </div>
+    </div>
+
+    <p class="copy">© Copyright Rimel 2022</p>
+</footer>
+
+</body>
+</html>
