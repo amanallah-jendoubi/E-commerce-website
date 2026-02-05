@@ -9,7 +9,6 @@ body {
     background: #fff;
 }
 
-/* HEADER */
 .header {
     display: flex;
     align-items: center;
@@ -28,14 +27,12 @@ body {
     padding: 8px 12px;
 }
 
-/* BREADCRUMB */
 .breadcrumb {
     padding: 20px 80px;
     font-size: 14px;
     color: #777;
 }
 
-/* CHECKOUT */
 .checkout {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
@@ -43,7 +40,6 @@ body {
     padding: 40px 80px;
 }
 
-/* BILLING */
 .billing h2 {
     margin-bottom: 30px;
 }
@@ -60,7 +56,6 @@ body {
     font-size: 14px;
 }
 
-/* SUMMARY */
 .summary {
     border: 1px solid #eee;
     padding: 30px;
@@ -124,7 +119,6 @@ body {
     cursor: pointer;
 }
 
-/* FOOTER */
 footer {
     background: #000;
     color: #ccc;
