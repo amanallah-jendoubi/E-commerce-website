@@ -9,7 +9,6 @@ body {
     background: #fff;
 }
 
-/* HEADER */
 .header {
     display: flex;
     align-items: center;
@@ -28,7 +27,6 @@ body {
     padding: 8px 12px;
 }
 
-/* SECTIONS */
 section {
     padding: 50px 80px;
 }
@@ -46,7 +44,6 @@ section {
     cursor: pointer;
 }
 
-/* PRODUCTS */
 .products {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -110,7 +107,6 @@ section {
     font-size: 13px;
 }
 
-/* FOOTER */
 footer {
     background: #000;
     color: #ccc;
