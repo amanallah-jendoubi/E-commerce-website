@@ -53,7 +53,6 @@
             <div class="flex justify-center items-center mt-10">
                 <button class="bg-orange-500 p-3 rounded-lg text-sm text-white md:text-base">Send message</button>
             </div>
-
         </section>
 
 
