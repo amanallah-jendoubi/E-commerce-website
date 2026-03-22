@@ -56,7 +56,7 @@
                 <p>$650</p>
             </div>
             <div class="flex justify-center items-center mt-10">
-                <button class="bg-orange-600 hover:bg-[#DB4444] p-3 px-5 rounded-full text-sm text-white md:text-base">Create Account</button>
+                <button class="bg-orange-600 hover:bg-[#DB4444] p-3 px-5 rounded-full text-sm text-white md:text-base">Process to checkout</button>
             </div>
         </div>
     

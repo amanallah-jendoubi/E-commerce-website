@@ -19,7 +19,7 @@
                     <input class=" bg-gray-100 focus:outline-none focus:ring-1 focus:ring-black shadow-md rounded-full p-2 pl-11 mx-auto w-[90%]" type="text" id="search" name="search" placeholder="Search">
                 </label>
                 <div class="flex justify-center items-center">
-                    <img src="resources/Cart1 with buy.png" alt="shop">
+                    <a  class="relative p-2" href="cart.php"><img src="resources/Cart1 with buy.png" alt="shop"><div class="absolute rounded-full bg-orange-500 text-white w-5 h-5 top-0 right-0 flex justify-center items-center">1</div></a>
                 </div>
             </div>
             <label class="relative block sm:hidden mx-auto w-[90%]">
