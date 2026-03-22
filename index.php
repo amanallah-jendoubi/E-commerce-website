@@ -67,7 +67,7 @@
                 <div class="w-[20%]">
                     <div class="relative w-[100%] mx-auto bg-gray-50 rounded-md">
                         <img class="max-w-[100%] object-cover mx-auto" src="./resources//coat.png" alt="">
-                        <img class="absolute top-[3%] right-[2%] md:w-6 md:h-6 h-4 w-4" src="./resources/whitre-heart.png" alt="">
+                        <img class=" absolute top-[3%] right-[2%] md:w-6 md:h-6 h-4 w-4" src="./resources/whitre-heart.png" alt="">
                     </div>
                     <h3>The north coat</h3>
                     <div class="flex">
@@ -84,7 +84,9 @@
                 <div class="w-[20%]">
                     <div class="relative w-[100%] mx-auto bg-gray-50 rounded-md">
                         <img class="max-w-[100%] object-cover mx-auto"  src="./resources//coat.png" alt="">
-                        <img class="absolute top-[3%] right-[2%] h-4 w-4 md:w-6 md:h-6" src="./resources/whitre-heart.png" alt="">
+                        <div class="js-heart">
+                        <img class="js-white-heart absolute top-[3%] right-[2%] h-4 w-4 md:w-6 md:h-6" src="./resources/whitre-heart.png" alt="">
+                        </div>
                     </div>
                     <h3>Gucci duffle bag</h3>
                     <div class="flex">
@@ -219,6 +221,6 @@
 <?php 
 include 'footer.php';
 ?>
-    
+    <script src="scripts/index.js"></script>
 </body>
 </html>

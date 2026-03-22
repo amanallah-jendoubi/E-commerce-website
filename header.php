@@ -8,10 +8,10 @@
                 <h2 class="font-bold text-3xl my-3 md:pt-1 lg:pt-1 lg:text-4xl">Exclusive</h2>
                 <nav class="my-3 hidden md:block">
                     <ul class="flex justify-center">
-                        <li class="m-4   mouse:hover:text-red-500 mouse:hover:underline mouse:hover:underline-offset-4">Home</li>
-                        <li class="m-4  mouse:hover:text-red-500 mouse:hover:underline mouse:hover:underline-offset-4">Contact</li>
-                        <li class="m-4  mouse:hover:text-red-500 mouse:hover:underline mouse:hover:underline-offset-4">Sign Up</li>
-                        <li class="m-4  mouse:hover:text-red-500 mouse:hover:underline mouse:hover:underline-offset-4">About</li>
+                        <a href="index.php"><li class="m-4   mouse:hover:text-red-500 mouse:hover:underline mouse:hover:underline-offset-4">Home</li></a>
+                        <a href="contact.php"><li class="m-4  mouse:hover:text-red-500 mouse:hover:underline mouse:hover:underline-offset-4">Contact</li></a>
+                        <a href="sign-up.php"><li class="m-4  mouse:hover:text-red-500 mouse:hover:underline mouse:hover:underline-offset-4">Sign Up</li></a>
+                        <a href="about.php"><li class="m-4  mouse:hover:text-red-500 mouse:hover:underline mouse:hover:underline-offset-4">About</li></a>
                     </ul>
                 </nav>
                 <label class="relative sm:flex sm:items-center sm: hidden w-[40%] md:w-[30%] lg:w-[40%]">
