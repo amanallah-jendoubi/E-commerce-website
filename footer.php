@@ -19,6 +19,6 @@
         </div>
         <div class="copyright text-white w-[100%] mx-auto border-t-2 pt-1 pb-0.5">
             <p class="text-center text-xs mb-1">made with passion by Exclusive</p>
-            <p class="text-center text-xs">© 2026 Exclusive Ecommerce. All rights reserved.</p>
+            <p class="text-center text-xs">© <?= date('Y') ?> Exclusive Ecommerce. All rights reserved.</p>
         </div>
     </footer>

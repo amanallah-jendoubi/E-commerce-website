@@ -29,30 +29,42 @@
             </div>
             <h2 class="text-2xl font-bold mb-5">Browse By Category</h2>
             <div class="grid justify-items-center grid-rows-2 grid-cols-3 gap-y-8 gap-x-9 lg:w-[60%] mx-auto">
-                <div class="p-1 mouse:hover:ring-2 mouse:hover:ring-[#DB4444]">
-                    <img src="./resources/electronics.png" alt="">
-                    <p class="text-sm font-semibold text-center mt-1">Electronics</p>
-                </div>
-                <div class="p-1 mouse:hover:ring-2 mouse:hover:ring-[#DB4444]" >
-                    <img src="./resources//living.png" alt="">
-                    <p class="text-sm font-semibold text-center mt-1">Furniture</p>
-                </div>
-                <div class="p-1 mouse:hover:ring-2 mouse:hover:ring-[#DB4444]">
-                    <img src="./resources/clothing.png" alt="">
-                    <p class="text-sm font-semibold text-center mt-1">Clothing</p>
-                </div>
-                <div class="p-1 mouse:hover:ring-2 mouse:hover:ring-[#DB4444]">
-                    <img src="./resources/sports-logo.png" alt="">
-                    <p class="text-sm font-semibold text-center mt-1">Sports</p>
-                </div>
-                <div class="p-1 mouse:hover:ring-2 mouse:hover:ring-[#DB4444]">
-                    <img src="./resources/groceries.png" alt="">
-                    <p class="text-sm font-semibold text-center mt-1">Groceries</p>
-                </div>
-                <div class="p-1 mouse:hover:ring-2 mouse:hover:ring-[#DB4444]">
-                    <img src="./resources/toys.png" alt="">
-                    <p class="text-sm font-semibold text-center mt-1">Toys</p>
-                </div>
+                <a href="./categories/electronics.php">
+                    <div class="p-1 mouse:hover:ring-2 mouse:hover:ring-[#DB4444]">
+                        <img src="./resources/electronics.png" alt="">
+                        <p class="text-sm font-semibold text-center mt-1">Electronics</p>
+                    </div>
+                </a>
+                <a href="./categories/furniture.php">
+                    <div class="p-1 mouse:hover:ring-2 mouse:hover:ring-[#DB4444]" >
+                        <img src="./resources//living.png" alt="">
+                        <p class="text-sm font-semibold text-center mt-1">Furniture</p>
+                    </div>
+                </a>
+                <a href="./categories/furniture.php">
+                    <div class="p-1 mouse:hover:ring-2 mouse:hover:ring-[#DB4444]">
+                        <img src="./resources/clothing.png" alt="">
+                        <p class="text-sm font-semibold text-center mt-1">Clothing</p>
+                    </div>
+                </a>
+                <a href="./categories/sports.php">
+                    <div class="p-1 mouse:hover:ring-2 mouse:hover:ring-[#DB4444]">
+                        <img src="./resources/sports-logo.png" alt="">
+                        <p class="text-sm font-semibold text-center mt-1">Sports</p>
+                    </div>
+                </a>
+                <a href="./categories/groceries.php">
+                    <div class="p-1 mouse:hover:ring-2 mouse:hover:ring-[#DB4444]">
+                        <img src="./resources/groceries.png" alt="">
+                        <p class="text-sm font-semibold text-center mt-1">Groceries</p>
+                    </div>
+                </a>
+                <a href="./categories/toys.php">
+                    <div class="p-1 mouse:hover:ring-2 mouse:hover:ring-[#DB4444]">
+                        <img src="./resources/toys.png" alt="">
+                        <p class="text-sm font-semibold text-center mt-1">Toys</p>
+                    </div>
+                </a>
             </div>
         </section>
 
