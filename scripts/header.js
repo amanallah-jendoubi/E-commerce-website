@@ -11,3 +11,5 @@ quantityList.forEach((itm)=>{
         counter.innerHTML=itm.value;
     });
 });
+
+
