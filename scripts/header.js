@@ -1,6 +1,3 @@
-//flex justify-center items-center
-
-
 const quantityList=document.querySelectorAll('.js-quantity-input');
 quantityList.forEach((itm)=>{
     itm.addEventListener('input',()=>{
@@ -12,4 +9,8 @@ quantityList.forEach((itm)=>{
     });
 });
 
+console.log(document.querySelector('.js-account'));
 
+document.querySelector('.js-account').addEventListener('click',()=>{
+    document.querySelector('.js-account-drop-down').classList.toggle('hidden');
+});

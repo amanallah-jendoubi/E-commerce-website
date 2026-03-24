@@ -233,6 +233,7 @@
 <?php 
 include 'footer.php';
 ?>
+    <script src="scripts/header.js"></script>
     <script src="scripts/index.js"></script>
 </body>
 </html>

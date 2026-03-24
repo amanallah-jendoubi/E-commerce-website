@@ -21,7 +21,23 @@
                 <div class="flex justify-center items-center">
                         <a  class="js-cart-link relative p-2 mr-2" href="cart.php"><img src="resources/Cart1 with buy.png" alt="shop"><div class="js-cart-counter hidden absolute rounded-full bg-orange-500 text-white w-5 h-5 top-0 right-0"></div></a>
                     <?php if(isset($_COOKIE["PHPSESSID"])):?>
-                    <img class="w-9 h-9" src="./resources/orange-account.png" alt="">
+                        <div class="relative">
+                            <img class="js-account w-9 h-9" src="./resources/orange-account.png" alt="">
+                            <div class="js-account-drop-down hidden absolute right-0 top-10 bg-white shadow-lg rounded-lg w-48 pb-3 z-50">
+                                <div class="flex mb-2 mouse:hover:bg-gray-100 hover:cursor-pointer py-1">
+                                    <img class="mr-1 w-8 h-8" src="./resources/manage-account.png" alt="">
+                                    <p class="">Manage My account</p>
+                                </div>
+                                <div class="flex mb-2 mouse:hover:bg-gray-100 hover:cursor-pointer py-1">
+                                    <img class="mr-1 w-8 h-8" src="./resources/order.png" alt="">
+                                    <p class="">My Order</p>
+                                </div>
+                                <div class="flex mouse:hover:bg-gray-100 hover:cursor-pointer py-1">
+                                    <img class="mr-1 w-8 h-8" src="./resources/logout.png" alt="">
+                                    <p class=" ">Logout</p>
+                                </div>
+                            </div>
+                        </div>
                     <?php endif; ?>
                 </div>
             </div>
@@ -39,3 +55,4 @@
             </nav>
         </div>
     </header>
+

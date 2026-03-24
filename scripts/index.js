@@ -14,8 +14,6 @@ HeartList.forEach((itm)=>{
 
 
 
-
-
 //hoisting 
 function renderRedHeart(elem){
     const html=`
