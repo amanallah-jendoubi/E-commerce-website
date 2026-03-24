@@ -19,7 +19,10 @@
                     <input class=" bg-gray-100 focus:outline-none focus:ring-1 focus:ring-black shadow-md rounded-full p-2 pl-11 mx-auto w-[90%]" type="text" id="search" name="search" placeholder="Search">
                 </label>
                 <div class="flex justify-center items-center">
-                    <a  class="js-cart-link relative p-2" href="cart.php"><img src="resources/Cart1 with buy.png" alt="shop"><div class="js-cart-counter hidden absolute rounded-full bg-orange-500 text-white w-5 h-5 top-0 right-0"></div></a>
+                        <a  class="js-cart-link relative p-2 mr-2" href="cart.php"><img src="resources/Cart1 with buy.png" alt="shop"><div class="js-cart-counter hidden absolute rounded-full bg-orange-500 text-white w-5 h-5 top-0 right-0"></div></a>
+                    <?php if(isset($_COOKIE["PHPSESSID"])):?>
+                    <img class="w-9 h-9" src="./resources/orange-account.png" alt="">
+                    <?php endif; ?>
                 </div>
             </div>
             <label class="relative block sm:hidden mx-auto w-[90%]">
@@ -35,18 +38,4 @@
                 </ul>
             </nav>
         </div>
-        <section class="hidden">
-            <nav>
-                <ul>
-                    <li><a href="">Men's Fashion</a></li>
-                    <li><a href="">Electronics</a></li>
-                    <li><a href="">Home & Lifestyle</a></li>
-                    <li><a href="">Medicine</a></li>
-                    <li><a href="">Sports & Outdoor</a></li>
-                    <li><a href="">Baby's & Toys</a></li>
-                    <li><a href="">Groceries & Pets</a></li>
-                    <li><a href="">Health & Beauty</a></li>
-                </ul>
-            </nav>
-        </section>
     </header>
