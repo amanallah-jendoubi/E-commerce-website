@@ -26,7 +26,7 @@
                             <div class="js-account-drop-down hidden absolute right-0 top-10 bg-white shadow-lg rounded-lg w-48 pb-3 z-50">
                                 <div class="flex mb-2 mouse:hover:bg-gray-100 hover:cursor-pointer py-1">
                                     <img class="mr-1 w-8 h-8" src="./resources/manage-account.png" alt="">
-                                    <p class="">Manage My account</p>
+                                    <a href="logout.php" class="">My Account</p>
                                 </div>
                                 <div class="flex mb-2 mouse:hover:bg-gray-100 hover:cursor-pointer py-1">
                                     <img class="mr-1 w-8 h-8" src="./resources/order.png" alt="">
@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="flex mouse:hover:bg-gray-100 hover:cursor-pointer py-1">
                                     <img class="mr-1 w-8 h-8" src="./resources/logout.png" alt="">
-                                    <p class=" ">Logout</p>
+                                    <a href="logout.php" class="block">Logout</a>
                                 </div>
                             </div>
                         </div>
