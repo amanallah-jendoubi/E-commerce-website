@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home Page{% endblock %}
+{% block main %}
+    <main class="w-[80%] mx-auto">
+        <section class="mb-12">
+            <div class="flex mb-5">
+                <div class="w-4 mr-2 bg-[#DB4444]"></div>
+                <h3 class="text-[#DB4444] font-bold text-xl ">Categories</h3>
+            </div>
+            <h2 class="text-2xl font-bold mb-5">Browse By Category</h2>
+            <div class="grid justify-items-center grid-rows-2 grid-cols-3 gap-y-8 gap-x-9 lg:w-[60%] mx-auto">
+                {% for category in ['Electronics', 'Living', 'Clothing', 'Sports', 'Groceries', 'Toys'] %}
+                    <a href="{{ path('category', { 'type': category }) }}">
+                        <div class="p-1 mouse:hover:ring-2 mouse:hover:ring-[#DB4444]">
+                            <img src="{{ asset('images/categories/' ~ category ~ '.png') }}" alt="">
+                            <p class="text-sm font-semibold text-center mt-1">{{ category }}</p>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <div class="flex mb-5">
+                <div class="w-4 mr-2 bg-[#DB4444]"></div>
+                <h3 class="text-[#DB4444] font-bold text-xl ">Todays</h3>
+            </div>
+            <h2 class="text-2xl font-bold mb-5">Flash Sales</h2>
+            <div class="flex overflow-x-auto gap-3">
+                {% for product in flashSaleProducts %}
+                    <div class="shrink-0 basis-[90%] md:basis-[45%]">
+                        <div class="relative w-[100%] mx-auto bg-gray-50 rounded-md">
+                            <img class="max-w-[100%] object-cover mx-auto" src="{{ asset('assets/resources/' ~ product.image) }}" alt="">
+                            <div class="js-heart">
+                                <img class="js-white-heart absolute top-[3%] right-[2%] h-5 w-5 md:w-6 md:h-6" src="{{ asset('assets/resources/whitre-heart.png') }}" alt="">
+                            </div>
+                        </div>
+                        <h3>{{ product.name }}</h3>
+                        <div class="flex">
+                            <p class="mr-4">${{ product.price }}</p>
+                            <p class="text-gray-500 line-through">${{ product.originalPrice }}</p>
+                        </div>
+                        <div>
+                            <div class="flex gap-x-1">
+                                {% for i in range(1, 6) %}
+                                    {% if i <= product.rating %}
+                                        <img src="{{ asset('assets/resources/fullStar.png') }}" alt="">
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            <p>({{ product.reviews }})</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <div class="flex mb-5">
+                <div class="w-4 mr-2 bg-[#DB4444]"></div>
+                <h3 class="text-[#DB4444] font-bold text-xl ">This Month</h3>
+            </div>
+            <h2 class="text-2xl font-bold mb-5">Best Selling Products</h2>
+            <div class="flex overflow-x-auto gap-3">
+                {% for product in bestSellingProducts %}
+                    <div class="shrink-0 basis-[90%] md:basis-[45%]">
+                        <div class="relative w-[100%] mx-auto bg-gray-50 rounded-md">
+                            <img class="max-w-[100%] object-cover mx-auto" src="{{ asset('assets/resources/' ~ product.image) }}" alt="">
+                            <div class="js-heart">
+                                <img class="js-white-heart absolute top-[3%] right-[2%] h-5 w-5 md:w-6 md:h-6" src="{{ asset('assets/resources/whitre-heart.png') }}" alt="">
+                            </div>
+                        </div>
+                        <h3>{{ product.name }}</h3>
+                        <div class="flex">
+                            <p class="mr-4">${{ product.price }}</p>
+                            <p class="text-gray-500 line-through">${{ product.originalPrice }}</p>
+                        </div>
+                        <div>
+                            <div class="flex gap-x-1">
+                                {% for i in range(1, 6) %}
+                                    {% if i <= product.rating %}
+                                        <img src="{{ asset('assets/resources/fullStar.png') }}" alt="">
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            <p>({{ product.reviews }})</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+{% endblock %}

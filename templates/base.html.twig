@@ -2,23 +2,101 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
-
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-
-        {% set frankenphpHotReload = app.request.server.get('FRANKENPHP_HOT_RELOAD') %}
-        {% if frankenphpHotReload %}
-        <meta name="frankenphp-hot-reload:url" content="{{ frankenphpHotReload }}">
-        <script src="https://cdn.jsdelivr.net/npm/idiomorph"></script>
-        <script src="https://cdn.jsdelivr.net/npm/frankenphp-hot-reload/+esm" type="module"></script>
-        {% endif %}
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">{# tailwind linking #}
     </head>
+
+
     <body>
-        {% block body %}{% endblock %}
+        <header class="mb-12">
+            <p class="bg-black text-slate-200 py-6 font-mono text-base text-center">
+                Winter Sale And Free Express Delivery
+                <span class="block font-semibold sm:inline">OFF 50%!</span>
+            </p>
+            <div class="nav-container w-[90%] mx-auto">
+                <div class="flex justify-between">
+                    <h2 class="font-bold text-3xl my-3 md:pt-1 lg:pt-1 lg:text-4xl">Exclusive</h2>
+                    <nav class="my-3 hidden md:block">
+                        <ul class="flex justify-center">
+                            <a href="{{ path('app_home') }}"><li class="m-4 hover:text-red-500 hover:underline hover:underline-offset-4">Home</li></a>
+                            <a href="{{ path('app_contact') }}"><li class="m-4 hover:text-red-500 hover:underline hover:underline-offset-4">Contact</li></a>
+                            <a href="{{ path('app_signUp') }}"><li class="m-4 hover:text-red-500 hover:underline hover:underline-offset-4">Sign Up</li></a>
+                            <a href="{{ path('app_about') }}"><li class="m-4 hover:text-red-500 hover:underline hover:underline-offset-4">About</li></a>
+                        </ul>
+                    </nav>
+                    <label class="relative sm:flex sm:items-center hidden w-[40%] md:w-[30%] lg:w-[40%]">
+                        <img class="absolute left-7 lg:left-10 top-1/2 -translate-y-1/2 w-5 h-5 object-contain" src="{{ asset('images/general/search.png') }}" alt="search icon">
+                        <input class="bg-gray-100 focus:outline-none focus:ring-1 focus:ring-black shadow-md rounded-full p-2 pl-11 mx-auto w-[90%]" type="text" id="search" name="search" placeholder="Search">
+                    </label>
+                </div>
+                <label class="relative block sm:hidden mx-auto w-[90%]">
+                    <img class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 object-contain" src="{{ asset('images/general/search.png') }}" alt="search icon">
+                    <input class="bg-gray-100 focus:outline-none focus:ring-1 focus:ring-black shadow-md rounded-full p-2 pl-11 mx-auto w-[90%]" type="text" id="search" name="search" placeholder="Search">
+                </label>
+                <nav class="my-3 md:hidden">
+                    <ul class="flex justify-center">
+                        <a href="{{ path('app_home') }}"><li class="m-4 hover:text-red-500 hover:underline hover:underline-offset-4">Home</li></a>
+                        <a href="{{ path('app_contact') }}"><li class="m-4 hover:text-red-500 hover:underline hover:underline-offset-4">Contact</li></a>
+                        <a href="{{ path('app_signUp') }}"><li class="m-4 hover:text-red-500 hover:underline hover:underline-offset-4">Sign Up</li></a>
+                        <a href="{{ path('app_about') }}"><li class="m-4 hover:text-red-500 hover:underline hover:underline-offset-4">About</li></a>
+                    </ul>
+                </nav>
+            </div>
+    </header>
+
+        {% block main %}{% endblock %}
+
+        {% block services%}
+            <section class="offers flex w-[95%] justify-between mx-auto">
+                <div class="w-[30%]">
+                    <div class="bg-[#DB4444] rounded-[50%] w-14 h-14 flex items-center justify-center p-3 mx-auto">
+                        <img class="max-w-[100%]" src="{{ asset('images/general/icon-delivery.png') }}" alt="">
+                    </div>
+                    <h1 class="text-center text-xs font-medium mt-2">FREE AND FAST DELIVERY</h1>
+                    <p class="text-sm text-center leading-tight">Free delivery for all orders over $140</p>
+                </div>
+                <div class="w-[30%]">
+                    <div class="bg-[#DB4444] rounded-[50%] w-14 h-14 flex items-center justify-center p-3 mx-auto">
+                        <img class="max-w-[100%]" src="{{ asset('images/general/customer-service.png') }}" alt="">
+                    </div>
+                    <h1 class="text-center text-xs font-medium mt-2">24/7 CUSTOMER SERVICE</h1>
+                    <p class="text-sm text-center leading-tight">Friendly 24/7 customer support</p>
+                </div>
+                <div class="w-[30%]">
+                    <div class="bg-[#DB4444] rounded-[50%] w-14 h-14 flex items-center justify-center p-3 mx-auto">
+                        <img class="max-w-[100%] object-contain" src="{{ asset('images/general/shield-tick.png') }}" alt="">
+                    </div>
+                    <h1 class="text-center text-xs font-medium mt-2">MONEY BACK GUARANTEE</h1>
+                    <p class="text-sm text-center leading-tight">We reurn money within 30 days</p>
+                </div>
+            </section>
+
+        {% endblock %}
+       <footer class="bg-black mt-28">
+           <div class="text-white w-[80%] mx-auto pt-4">
+               <h1 class="font-semibold text-2xl text-center mb-2">Support</h1>
+               <p class="text-center text-sm mb-[0.5rem]">676 Centre Urbain Nord BP, Tunis 1080</p>
+               <p class="text-center text-sm mb-[0.5rem]">support@exclusive.com</p>
+               <p class="text-center text-sm">+88015-88888-9999</p>
+           </div>
+           <div class="socials flex justify-center w-[80%] mx-auto pt-4">
+               <a class="mx-4" href="#"><img src="{{ asset('images/general/facebook.png') }}" alt="Facebook"></a>
+               <a class="mx-4" href="#"><img src="{{ asset('images/general/instagram.png') }}" alt="Instagram"></a>
+               <a class="mx-4" href="#"><img src="{{ asset('images/general/linkedin.png') }}" alt="LinkedIn"></a>
+           </div>
+           <div class="text-white w-[80%] mx-auto py-4">
+               <h1 class="font-semibold text-2xl text-center mb-2">Quick Link</h1>
+               <p class="text-center text-sm hover:text-[#DB4444]"><a href="#">Privacy Policy</a></p>
+               <p class="text-center text-sm hover:text-[#DB4444]"><a href="#">Terms Of Use</a></p>
+               <p class="text-center text-sm hover:text-[#DB4444]"><a href="#">FAQ</a></p>
+               <p class="text-center text-sm hover:text-[#DB4444]"><a href="{{ path('app_contact') }}">Contact</a></p>
+           </div>
+           <div class="copyright text-white w-[100%] mx-auto border-t-2 pt-1 pb-0.5">
+               <p class="text-center text-xs mb-1">made with passion by Exclusive</p>
+               <p class="text-center text-xs">© {{ 'now'|date('Y') }} Exclusive Ecommerce. All rights reserved.</p>
+           </div>
+   </footer>
     </body>
 </html>
