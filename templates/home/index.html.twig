@@ -10,11 +10,10 @@
             </div>
             <h2 class="text-2xl font-bold mb-5">Browse By Category</h2>
             <div class="grid justify-items-center grid-rows-2 grid-cols-3 gap-y-8 gap-x-9 lg:w-[60%] mx-auto">
-                {% for category in ['Electronics', 'Living', 'Clothing', 'Sports', 'Groceries', 'Toys'] %}
-                    <a href="{{ path('category', { 'type': category }) }}">
+                {% for category in categories %}
+                    <a href="{{ path('app_category', { 'categoryName': category.name }) }}">
                         <div class="p-1 mouse:hover:ring-2 mouse:hover:ring-[#DB4444]">
-                            <img src="{{ asset('images/categories/' ~ category ~ '.png') }}" alt="">
-                            <p class="text-sm font-semibold text-center mt-1">{{ category }}</p>
+                            <img src="{{ asset('images/categories/' ~ category.name| lower  ~'/'~ category.name| lower ~ '.png') }}" alt="{{ category.name }}">                            <p class="text-sm font-semibold text-center mt-1">{{ category.name }}</p>
                         </div>
                     </a>
                 {% endfor %}
@@ -24,69 +23,120 @@
         <section class="mb-12">
             <div class="flex mb-5">
                 <div class="w-4 mr-2 bg-[#DB4444]"></div>
-                <h3 class="text-[#DB4444] font-bold text-xl ">Todays</h3>
+                <h3 class="text-[#DB4444] font-bold text-xl">Todays</h3>
             </div>
             <h2 class="text-2xl font-bold mb-5">Flash Sales</h2>
             <div class="flex overflow-x-auto gap-3">
                 {% for product in flashSaleProducts %}
-                    <div class="shrink-0 basis-[90%] md:basis-[45%]">
+                    <div class="shrink-0 basis-[90%] md:basis-[45%] lg:basis-[23%]">
                         <div class="relative w-[100%] mx-auto bg-gray-50 rounded-md">
-                            <img class="max-w-[100%] object-cover mx-auto" src="{{ asset('assets/resources/' ~ product.image) }}" alt="">
+                            <img class="max-w-[100%] object-cover mx-auto h-48"
+                                 src="{{ asset(product.getImagePath()) }}"
+                                 alt="{{ product.name }}"
+                            >
+
                             <div class="js-heart">
-                                <img class="js-white-heart absolute top-[3%] right-[2%] h-5 w-5 md:w-6 md:h-6" src="{{ asset('assets/resources/whitre-heart.png') }}" alt="">
+                                <img class="js-white-heart absolute top-[3%] right-[2%] h-5 w-5 md:w-6 md:h-6 cursor-pointer"
+                                     src="{{ asset('images/general/whitre-heart.png') }}"
+                                     alt="Add to wishlist">
                             </div>
                         </div>
-                        <h3>{{ product.name }}</h3>
+
+                        <h3 class="font-medium mt-2">{{ product.name }}</h3>
+
                         <div class="flex">
-                            <p class="mr-4">${{ product.price }}</p>
-                            <p class="text-gray-500 line-through">${{ product.originalPrice }}</p>
+                            <p class="mr-4 text-[#DB4444] font-semibold">${{ product.price }}</p>
+                            <p class="text-gray-500 line-through">
+                                ${{ product.originalPrice ?? (product.price * 1.2)|number_format(2) }}
+                            </p>
                         </div>
-                        <div>
+
+                        <div class="flex items-center gap-x-2">
                             <div class="flex gap-x-1">
-                                {% for i in range(1, 6) %}
-                                    {% if i <= product.rating %}
-                                        <img src="{{ asset('assets/resources/fullStar.png') }}" alt="">
-                                    {% endif %}
-                                {% endfor %}
+                                {% set stars = product.starDistribution %}
+
+                                {% if stars.fullStars > 0 %}
+                                    {% for i in 1..stars.fullStars %}
+                                        <img src="{{ asset('images/general/fullStar.png') }}" alt="full star" class="w-4 h-4">
+                                    {% endfor %}
+                                {% endif %}
+                                {# Demi-étoile #}
+                                {% if stars.halfStars %}
+                                    <img src="{{ asset('images/general/halfStar.png') }}" alt="half star" class="w-4 h-4">
+                                {% endif %}
+                                {% if stars.emptyStars > 0 %}
+                                    {% for i in range(1, stars.emptyStars) %}
+                                        <img src="{{ asset('images/general/emptyStar.png') }}" alt="empty star" class="w-4 h-4">
+                                    {% endfor %}
+                                {% endif %}
                             </div>
-                            <p>({{ product.reviews }})</p>
+                            <p class="text-gray-500 text-sm">({{ product.reviewCount }})</p>
                         </div>
                     </div>
+                {% else %}
+                    <p class="text-gray-500">No flash sale products available.</p>
                 {% endfor %}
             </div>
         </section>
-
         <section class="mb-12">
             <div class="flex mb-5">
                 <div class="w-4 mr-2 bg-[#DB4444]"></div>
-                <h3 class="text-[#DB4444] font-bold text-xl ">This Month</h3>
+                <h3 class="text-[#DB4444] font-bold text-xl">This Month</h3>
             </div>
             <h2 class="text-2xl font-bold mb-5">Best Selling Products</h2>
             <div class="flex overflow-x-auto gap-3">
                 {% for product in bestSellingProducts %}
-                    <div class="shrink-0 basis-[90%] md:basis-[45%]">
+                    <div class="shrink-0 basis-[90%] md:basis-[45%] lg:basis-[23%]">
                         <div class="relative w-[100%] mx-auto bg-gray-50 rounded-md">
-                            <img class="max-w-[100%] object-cover mx-auto" src="{{ asset('assets/resources/' ~ product.image) }}" alt="">
+                            {# Correction: Utiliser getImagePath() au lieu de product.image #}
+                            <img class="max-w-[100%] object-cover mx-auto h-48"
+                                 src="{{ asset(product.getImagePath()) }}"
+                                 alt="{{ product.name }}"
+                            >
+
                             <div class="js-heart">
-                                <img class="js-white-heart absolute top-[3%] right-[2%] h-5 w-5 md:w-6 md:h-6" src="{{ asset('assets/resources/whitre-heart.png') }}" alt="">
+                                <img class="js-white-heart absolute top-[3%] right-[2%] h-5 w-5 md:w-6 md:h-6 cursor-pointer"
+                                     src="{{ asset('images/general/whitre-heart.png') }}"
+                                     alt="Add to wishlist">
                             </div>
                         </div>
-                        <h3>{{ product.name }}</h3>
+
+                        <h3 class="font-medium mt-2">{{ product.name }}</h3>
+
                         <div class="flex">
-                            <p class="mr-4">${{ product.price }}</p>
-                            <p class="text-gray-500 line-through">${{ product.originalPrice }}</p>
+                            <p class="mr-4 text-[#DB4444] font-semibold">${{ product.price }}</p>
+                            <p class="text-gray-500 line-through">
+                                ${{ product.originalPrice ?? (product.price * 1.2)|number_format(2) }}
+                            </p>
                         </div>
-                        <div>
+
+                        <div class="flex items-center gap-x-2">
                             <div class="flex gap-x-1">
-                                {% for i in range(1, 6) %}
-                                    {% if i <= product.rating %}
-                                        <img src="{{ asset('assets/resources/fullStar.png') }}" alt="">
-                                    {% endif %}
-                                {% endfor %}
+                                {# Utilisation de getStarDistribution - MÊME LOGIQUE QUE FLASH SALES #}
+                                {% set stars = product.starDistribution %}
+
+                                {% if stars.fullStars > 0 %}
+                                    {% for i in 1..stars.fullStars %}
+                                        <img src="{{ asset('images/general/fullStar.png') }}" alt="full star" class="w-4 h-4">
+                                    {% endfor %}
+                                {% endif %}
+
+                                {% if stars.halfStars %}
+                                    <img src="{{ asset('images/general/halfStar.png') }}" alt="half star" class="w-4 h-4">
+                                {% endif %}
+
+                                {% if stars.emptyStars > 0 %}
+                                    {% for i in 1..stars.emptyStars %}
+                                        <img src="{{ asset('images/general/emptyStar.png') }}" alt="empty star" class="w-4 h-4">
+                                    {% endfor %}
+                                {% endif %}
+
                             </div>
-                            <p>({{ product.reviews }})</p>
+                            <p class="text-gray-500 text-sm">({{ product.reviewCount }})</p>
                         </div>
                     </div>
+                {% else %}
+                    <p class="text-gray-500">No best selling products available.</p>
                 {% endfor %}
             </div>
         </section>

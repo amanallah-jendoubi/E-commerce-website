@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block main %}
+    <main class="w-[95%] md:w-[85%] md:flex mx-auto">
+        <img class="block w-[50%] mx-auto object-contain md:mx-0" src="{{product.imagePath }}" alt="{{ product.name }}">
+        <div>
+            <h1 class="js-product-name font-semibold">{{ product.name }}</h1>
+            <div class="flex">
+                <div class="flex gap-x-1 mr-5">
+                    {% set stars = product.starDistribution %}
+
+                    {# Étoiles pleines #}
+                    {% if stars.fullStars > 0 %}
+                        {% for i in 1..stars.fullStars %}
+                            <img class="object-contain w-4 h-4" src="{{ asset('images/general/fullStar.png') }}" alt="full star">
+                        {% endfor %}
+                    {% endif %}
+
+                    {# Demi-étoile #}
+                    {% if stars.halfStars %}
+                        <img class="object-contain w-4 h-4" src="{{ asset('images/general/halfStar.png') }}" alt="half star">
+                    {% endif %}
+
+                    {# Étoiles vides #}
+                    {% if stars.emptyStars > 0 %}
+                        {% for i in 1..stars.emptyStars %}
+                            <img class="object-contain w-4 h-4" src="{{ asset('images/general/emptyStar.png') }}" alt="empty star">
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <p>({{ product.reviewCount }} Reviews)</p>
+            </div>
+
+            {% if product.quantity > 0 %}
+                <p class="text-green-600">In Stock</p>
+            {% else %}
+                <p class="text-red-600">Not Available</p>
+            {% endif %}
+
+            <p class="js-product-name font-medium">${{ product.price }}</p>
+            <p>{{ product.description }}</p>
+
+            <div class="flex mt-2">
+                <p class="mr-3">Quantity:</p>
+                <select class="js-my-select border-black border" name="quantity">
+                    {% for i in 1..10 %}
+                        <option value="{{ i }}" {% if i == 1 %}selected{% endif %}>
+                            {{ i }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="flex flex-col items-center">
+                <a class="js-add-to-cart bg-orange-400 hover:bg-[#DB4444] w-[50%] p-3 px-5 rounded-full text-sm text-white text-center md:text-base mb-4 mt-2 cursor-pointer">Add to cart</a>
+                <a class="bg-orange-600 hover:bg-[#DB4444] w-[50%] p-3 px-5 rounded-full text-sm text-white text-center md:text-base cursor-pointer">Buy Now</a>
+            </div>
+        </div>
+    </main>
+
+
+
+
+{% endblock %}
+
+{% block services %}{% endblock %}

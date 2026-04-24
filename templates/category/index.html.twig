@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ category.name }}{% endblock %}
+
+{% block main %}
+
+    <main class="w-[95%] mx-auto grid gap-3 grid-cols-2 sm:grid-cols-3 xl:grid-cols-4">
+        {% for product in products %}
+            <a href="{{ path('app_category_product', {'categoryName': category.name, 'productId': product.id}) }}" class="relative w-[100%] mx-auto bg-gray-50 rounded-md block hover:ring-2 hover:ring-[#DB4444] transition">
+                <div class="js-heart">
+                    <img class="js-white-heart absolute top-[3%] right-[2%] h-5 w-5 md:w-6 md:h-6 z-10" src="{{ asset('images/general/whitre-heart.png') }}" alt="">
+                </div>
+                <img class="max-w-[100%] object-cover mx-auto" src="{{ asset(product.imagePath) }}" alt="{{ product.name }}">
+                <h3 class="font-medium mt-2 px-2">{{ product.name }}</h3>
+                <div class="flex px-2">
+                    <p class="mr-4 text-[#DB4444] font-semibold">${{ product.price }}</p>
+                </div>
+                <div class="px-2 pb-2">
+                    <div class="flex gap-x-1">
+                        {% set stars = product.starDistribution %}
+
+                        {% if stars.fullStars > 0 %}
+                            {% for i in 1..stars.fullStars %}
+                                <img src="{{ asset('images/general/fullStar.png') }}" alt="full star" class="w-4 h-4">
+                            {% endfor %}
+                        {% endif %}
+
+                        {# Demi-étoile #}
+                        {% if stars.halfStars %}
+                            <img src="{{ asset('images/general/halfStar.png') }}" alt="half star" class="w-4 h-4">
+                        {% endif %}
+
+                        {% if stars.emptyStars > 0 %}
+                            {% for i in 1..stars.emptyStars %}
+                                <img src="{{ asset('images/general/emptyStar.png') }}" alt="empty star" class="w-4 h-4">
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <p class="text-gray-500 text-sm">({{ product.reviewCount }})</p>
+                </div>
+            </a>
+        {% endfor %}
+    </main>
+
+{% endblock %}
+
+{% block services %}{% endblock %}
