@@ -1,20 +1,94 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SignupController!{% endblock %}
+{% block title %}Sign Up{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block main %}
+    <main>
+        <div class="sm:flex sm:justify-between">
+            <div class="w-[60%] mx-auto p-2 sm:w-[50%] sm:mx-0 sm:flex sm:justify-center sm:items-center md:w-[50%]">
+                <div class="md:w-[70%] lg:w-[50%]">
+                    <h1 class="text-center font-semibold text-2xl">Create an account</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+                    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Web Projects/Exclusive/src/Controller/SignupController.php</code></li>
-        <li>Your template at <code>C:/Web Projects/Exclusive/templates/signup/index.html.twig</code></li>
-    </ul>
-</div>
+                    {# Name #}
+                    <div class="flex flex-col mb-3">
+                        <label class="mb-1 font-medium" for="{{ form.name.vars.id }}">Name</label>
+
+                        <input
+                            type="text"
+                            id="{{ form.name.vars.id }}"
+                            name="{{ form.name.vars.full_name }}"
+                            value="{{ form.name.vars.value }}"
+                            class="focus:outline-none ring-1 p-2 rounded-lg focus:bg-orange-50 text-sm {{ form.name.vars.errors|length > 0 ? 'ring-red-500' : 'ring-orange-500' }}"
+                        >
+                        {% for error in form.name.vars.errors %}
+                            <p class="text-red-600">{{ error.message }}</p>
+                        {% endfor %}
+                    </div>
+
+                    {# Email #}
+                    <div class="flex flex-col mb-3">
+                        <input
+                            type="text"
+                            id="{{ form.name.vars.id }}"
+                            name="{{ form.name.vars.full_name }}"
+                            value="{{ form.name.vars.value }}"
+                            class="w-full p-2 text-3xl text-red-500 border-2 border-orange-800 rounded-lg bg-white focus:outline-none focus:bg-orange-50 focus:border-emerald-600 transition-all"
+                        >
+                        <label class="mb-1 font-medium" for="{{ form.email.vars.id }}">Email</label>
+                        <input
+                            type="email"
+                            id="{{ form.email.vars.id }}"
+                            name="{{ form.email.vars.full_name }}"
+                            value="{{ form.email.vars.value }}"
+                            class="focus:outline-none ring-1 p-2 rounded-lg focus:bg-orange-50 text-sm {{ form.email.vars.errors|length > 0 ? 'ring-red-500' : 'ring-orange-500' }}"
+                        >
+                        {% for error in form.email.vars.errors %}
+                            <p class="text-red-600">{{ error.message }}</p>
+                        {% endfor %}
+                        {# DB error shown under email field #}
+                        {% for message in app.flashes('error') %}
+                            <p class="text-red-600">{{ message }}</p>
+                        {% endfor %}
+                    </div>
+
+                    {# Password #}
+                    <div class="flex flex-col mb-3">
+                        <label class="mb-1 font-medium" for="{{ form.password.vars.id }}">Password</label>
+                        <input
+                            type="password"
+                            id="{{ form.password.vars.id }}"
+                            name="{{ form.password.vars.full_name }}"
+                            class="focus:outline-none ring-1 p-2 rounded-lg focus:bg-orange-50 {{ form.password.vars.errors|length > 0 ? 'ring-red-500' : 'ring-orange-500' }}"
+                        >
+                        {% for error in form.password.vars.errors %}
+                            <p class="text-red-600">{{ error.message }}</p>
+                        {% endfor %}
+                    </div>
+
+                    <div class="flex justify-center items-center mt-10">
+                        <button type="submit" class="bg-orange-500 hover:bg-orange-600 p-3 px-5 rounded-full text-sm text-white md:text-base">
+                            Create Account
+                        </button>
+                    </div>
+
+                    <a href="{{ path('app_login') }}">
+                        <p class="text-center mt-4 text-gray-600 mouse:hover:underline">Already have account? Log In</p>
+                    </a>
+
+                    {{ form_end(form, {'render_rest': false}) }}
+                </div>
+            </div>
+
+            <div class="hidden sm:block bg-orange-200 rounded-l-lg w-[50%]">
+                <img class="hidden sm:block" src="{{ asset('assets/resources/login.png') }}" alt="">
+            </div>
+        </div>
+    </main>
+
+{% endblock %}
+
+
+{% block services %}
 {% endblock %}
