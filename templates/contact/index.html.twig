@@ -1,20 +1,112 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ContactController!{% endblock %}
+{% block title %}Contact{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block main %}
+    <main class="w-[90%] mx-auto md:w-[50%]">
+        <section class="contact">
+            <div class="mb-14">
+                <h1 class="text-center font-semibold text-2xl">Contact our team</h1>
+                <p class="text-center">Got any questions ? <span>Chat to our friendly team 24/7 for help
+                    <span class="block">or call us on
+                        <span class="text-[#DB4444] block">+88015-88888-9999</span>
+                    </span>
+                </span></p>
+            </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+            {% for message in app.flashes('success') %}
+                <p class="text-green-600 text-center mb-4">{{ message }}</p>
+            {% endfor %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Web Projects/Exclusive/src/Controller/ContactController.php</code></li>
-        <li>Your template at <code>C:/Web Projects/Exclusive/templates/contact/index.html.twig</code></li>
-    </ul>
-</div>
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+            <div class="flex flex-col">
+
+                {# First Name #}
+                <div class="flex flex-col mb-3">
+                    <label class="mb-1 font-medium" for="{{ form.firstName.vars.id }}">First Name</label>
+                    <input
+                        type="text"
+                        id="{{ form.firstName.vars.id }}"
+                        name="{{ form.firstName.vars.full_name }}"
+                        value="{{ form.firstName.vars.value }}"
+                        class="focus:outline-none ring-1 p-2 rounded-md {{ form.firstName.vars.errors|length > 0 ? 'ring-red-500' : 'ring-orange-500' }}"
+                    >
+                    {% for error in form.firstName.vars.errors %}
+                        <p class="text-red-600">{{ error.message }}</p>
+                    {% endfor %}
+                </div>
+
+                {# Last Name #}
+                <div class="flex flex-col mb-3">
+                    <label class="mb-1 font-medium" for="{{ form.lastName.vars.id }}">Last Name</label>
+                    <input
+                        type="text"
+                        id="{{ form.lastName.vars.id }}"
+                        name="{{ form.lastName.vars.full_name }}"
+                        value="{{ form.lastName.vars.value }}"
+                        class="focus:outline-none ring-1 p-2 rounded-md {{ form.lastName.vars.errors|length > 0 ? 'ring-red-500' : 'ring-orange-500' }}"
+                    >
+                    {% for error in form.lastName.vars.errors %}
+                        <p class="text-red-600">{{ error.message }}</p>
+                    {% endfor %}
+                </div>
+
+                {# Email #}
+                <div class="flex flex-col mb-3">
+                    <label class="mb-1 font-medium" for="{{ form.email.vars.id }}">Email</label>
+                    <input
+                        type="email"
+                        id="{{ form.email.vars.id }}"
+                        name="{{ form.email.vars.full_name }}"
+                        value="{{ form.email.vars.value }}"
+                        class="focus:outline-none ring-1 p-2 rounded-md {{ form.email.vars.errors|length > 0 ? 'ring-red-500' : 'ring-orange-500' }}"
+                    >
+                    {% for error in form.email.vars.errors %}
+                        <p class="text-red-600">{{ error.message }}</p>
+                    {% endfor %}
+                </div>
+
+                {# Subject #}
+                <div class="flex flex-col mb-3">
+                    <label class="mb-1 font-medium" for="{{ form.subject.vars.id }}">Subject</label>
+                    <input
+                        type="text"
+                        id="{{ form.subject.vars.id }}"
+                        name="{{ form.subject.vars.full_name }}"
+                        value="{{ form.subject.vars.value }}"
+                        class="focus:outline-none ring-1 p-2 rounded-md {{ form.subject.vars.errors|length > 0 ? 'ring-red-500' : 'ring-orange-500' }}"
+                    >
+                    {% for error in form.subject.vars.errors %}
+                        <p class="text-red-600">{{ error.message }}</p>
+                    {% endfor %}
+                </div>
+
+                {# Message #}
+                <div class="flex flex-col">
+                    <label class="mb-1 font-medium" for="{{ form.message.vars.id }}">Message</label>
+                    <textarea
+                        id="{{ form.message.vars.id }}"
+                        name="{{ form.message.vars.full_name }}"
+                        class="focus:outline-none ring-1 p-2 rounded-md {{ form.message.vars.errors|length > 0 ? 'ring-red-500' : 'ring-orange-500' }}"
+                    >{{ form.message.vars.value }}</textarea>
+                    {% for error in form.message.vars.errors %}
+                        <p class="text-red-600">{{ error.message }}</p>
+                    {% endfor %}
+                </div>
+
+            </div>
+
+            <div class="flex justify-center items-center mt-10">
+                <button type="submit" class="bg-orange-500 p-3 rounded-lg text-sm text-white md:text-base">
+                    Send message
+                </button>
+            </div>
+
+            {{ form_widget(form._token) }}
+            {{ form_end(form, {'render_rest': false}) }}
+        </section>
+    </main>
 {% endblock %}
+
+{% block services %}{% endblock %}
