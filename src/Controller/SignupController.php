@@ -22,8 +22,8 @@ class SignupController extends AbstractController
     ): Response {
 
         $user = new User();
-        $form = $this->createForm(SignUpType::class, $user);
-        $form->handleRequest($request);
+        $form = $this->createForm(SignUpType::class, $user);//Creates a form instance by binding two things the entity and the form type class
+        $form->handleRequest($request); // binds submitted POST data to the form
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -31,12 +31,13 @@ class SignupController extends AbstractController
             $existing = $userRepository->findOneBy(['email' => $user->getEmail()]);
             if ($existing) {
                 $this->addFlash('error', 'Email already in use.');
-                return $this->redirectToRoute('app_signup');
+                return $this->redirectToRoute('app_signUp');   //user already registred in db
             }
 
             // Persist user
             $em->persist($user);
             $em->flush();
+            dump($user);
 
             // Log user in directly after signup
             $request->getSession()->set('user_id', $user->getId());

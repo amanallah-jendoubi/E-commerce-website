@@ -25,7 +25,7 @@ class User
     private ?string $password = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $role = null;
+    private ?string $role = 'user';
 
     /**
      * @var Collection<int, CustomerOrder>

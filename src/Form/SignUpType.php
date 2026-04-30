@@ -17,17 +17,17 @@ use Symfony\Component\Validator\Constraints\Length;
 
 class SignUpType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildForm(FormBuilderInterface $builder, array $options): void //like a constructor function
     {
         $builder
-            ->add('name', TextType::class, [
+            ->add('name', TextType::class, [ //the child part is used in twig by vars object that generates the id and the name for you (except the type)
                 'label' => 'Name',
                 'constraints' => [
                     new NotBlank(['message' => 'Name is required']),
                 ]
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Email',
+                'label' => 'Email',//visible text label displayed above/beside the form field in the HTML output.
                 'constraints' => [
                     new NotBlank(['message' => 'Email is required']),
                     new Email(['message' => 'Invalid email address']),
@@ -45,7 +45,7 @@ class SignUpType extends AbstractType
             ]);
     }
 
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver): void //linking to entity
     {
         $resolver->setDefaults([
             'data_class' => User::class, // linked to User entity
