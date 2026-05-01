@@ -13,7 +13,8 @@
                 {% for category in categories %}
                     <a href="{{ path('app_category', { 'categoryName': category.name }) }}">
                         <div class="p-1 mouse:hover:ring-2 mouse:hover:ring-[#DB4444]">
-                            <img src="{{ asset('images/categories/' ~ category.name| lower  ~'/'~ category.name| lower ~ '.png') }}" alt="{{ category.name }}">                            <p class="text-sm font-semibold text-center mt-1">{{ category.name }}</p>
+                            <img src="{{ asset('images/categories/' ~ category.name| lower  ~'/'~ category.name| lower ~ '.png') }}" alt="{{ category.name }}">
+                            <p class="text-sm font-semibold text-center mt-1">{{ category.name }}</p>
                         </div>
                     </a>
                 {% endfor %}
