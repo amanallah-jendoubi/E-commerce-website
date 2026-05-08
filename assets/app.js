@@ -8,4 +8,3 @@ import './stimulus_bootstrap.js';
 import './styles/app.css';
 import './js/heart.js';
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
