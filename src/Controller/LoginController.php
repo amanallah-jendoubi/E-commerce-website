@@ -34,7 +34,7 @@ final class LoginController extends AbstractController
 
             // 3.  create session, redirect to home (for identified user)
             $session = $request->getSession();
-            $session->set('user_id', $user->getId());
+            $session->set('user_id', $user->getId());//session only holds UID
             return $this->redirectToRoute('app_home');
         }
 

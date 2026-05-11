@@ -40,7 +40,7 @@ class SignupController extends AbstractController
             dump($user);
 
             // Log user in directly after signup
-            $request->getSession()->set('user_id', $user->getId());
+            $request->getSession()->set('user_id', $user->getId()); //create session holding UID
 
             return $this->redirectToRoute('app_home');
         }
