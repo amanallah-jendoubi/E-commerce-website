@@ -33,10 +33,15 @@
                             <input class="bg-gray-100 focus:outline-none focus:ring-1 focus:ring-black shadow-md rounded-full p-2 pl-14 mx-auto w-[90%]" type="text" id="search" name="search" placeholder="Search">
                         </label>
                         <div class="flex items-center sm:justify-between ">
-                            <img class="hidden sm:block mr-2 " src="{{ asset('images/general/liked.png') }}" alt="">
-                            <img class="hidden sm:block mr-2" src="{{ asset('images/general/basket.png') }}" alt="">
+                            <img class="hidden sm:block mr-1 " src="{{ asset('images/general/liked.png') }}" alt="">
+                            <div class="hidden  sm:block sm:w-10 relative mr-2">
+                                <img  src="{{ asset('images/general/basket.png') }}" alt="">
+                                <div id="cart-badge" class=" hidden absolute -top-2 -right-1 bg-[#DB4444] text-white text-xs w-4 h-4 rounded-full items-center justify-center">
+                                    0
+                                </div>
+                            </div>
                             <div class="relative group">
-                                <img class=" w-10 md:w-17 lg:w-10 aspect-square object-cover rounded-full"
+                                <img class=" w-10 sm:w-12 lg:w-10 aspect-square object-cover rounded-full"
                                      src="{{ asset(app.session.get('user_id')
                                          ? 'images/user/' ~ app.session.get('user_id') ~ '.png'
                                          : 'images/user/account.png') }}"
