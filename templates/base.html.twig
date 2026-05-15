@@ -28,18 +28,27 @@
                         </ul>
                     </nav>
                     <div class="flex">
-                        <label class="relative mr-2 sm:flex sm:items-center hidden w-[90%] md:w-[70%] lg:w-[70%]">
+                        <label class="relative mr-2 sm:flex sm:items-center hidden w-[90%] lg:w-[70%]">
                             <img class="absolute left-7 lg:left-10 top-1/2 -translate-y-1/2 w-5 h-5 object-contain" src="{{ asset('images/general/search.png') }}" alt="search icon">
                             <input class="bg-gray-100 focus:outline-none focus:ring-1 focus:ring-black shadow-md rounded-full p-2 pl-14 mx-auto w-[90%]" type="text" id="search" name="search" placeholder="Search">
                         </label>
                         <div class="flex items-center sm:justify-between ">
                             <img class="hidden sm:block mr-2 " src="{{ asset('images/general/liked.png') }}" alt="">
                             <img class="hidden sm:block mr-2" src="{{ asset('images/general/basket.png') }}" alt="">
-                            {% if app.session.get('user_id') %}
-                                <img class="w-10 aspect-square rounded-full object-cover" src="{{ asset('images/user/' ~ app.session.get('user_id') ~ '.png') }}" alt="user icon">
-                            {% else %}
-                                <img class="w-8 aspect-square object-cover" src="{{ asset('images/user/account.png') }}" alt="user icon">
-                            {% endif %}
+                            <div class="relative group">
+                                <img class=" w-10 md:w-17 lg:w-10 aspect-square object-cover rounded-full"
+                                     src="{{ asset(app.session.get('user_id')
+                                         ? 'images/user/' ~ app.session.get('user_id') ~ '.png'
+                                         : 'images/user/account.png') }}"
+                                     alt="user icon">
+                                <!-- Dropdown -->
+                                <div class="absolute right-0 top-full mt-1 w-40 bg-white shadow-lg rounded-md
+                invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all z-50">
+                                    <a href="/profile" class="block px-4 py-2 hover:bg-gray-100">My Profile</a>
+                                    <a href="/orders" class="block px-4 py-2 hover:bg-gray-100">My Orders</a>
+                                    <a href="/logout" class="block px-4 py-2 hover:bg-gray-100 text-red-500">Logout</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
